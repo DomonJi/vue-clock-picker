@@ -1,7 +1,8 @@
-<template>
-<div id="app">
-    <TimePicker></TimePicker>
-</div>
+<template lang="pug">
+
+div(id="app")
+	time-picker
+
 </template>
 
 <script>
