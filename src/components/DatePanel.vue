@@ -1,33 +1,26 @@
 <template lang="html">
-   <div class="date-panel">
+   <div cursor=pointer class="date-panel" @click="changeHour(1)">
        {{hour}}:{{minute}}
    </div>
 </template>
 
 <script>
 import {
-    getHour,
-    getMinute
-} from '../vuex/getter'
+    mapGetters,
+    mapActions
+} from 'vuex'
 export default {
-    data() {
-        return {}
-    },
-    computed: {
-        hour: getHour,
-        minute: getMinute
-    },
-    methods: {},
-    components: {}
+    computed: mapGetters(['hour', 'minute']),
+    methods: mapActions(['changeHour'])
 }
 </script>
 
-<style lang="css">
+<style scoped>
 .date-panel {
     margin: 0 auto;
     align-items: center;
     justify-content: center;
-    height:40px;
+    height: 40px;
     width: 100px;
     background-color: #42b983;
     font-size: 24px;
