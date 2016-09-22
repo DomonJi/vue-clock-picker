@@ -1,34 +1,41 @@
 <template lang="jade">
 
-div(v-bind:style="inlineStyle" @click="handleTimeChange(index,angle)" @mousedown="disableMouseDown")
+div(v-bind:style="inlineStyle" @click="handleTimeChange(index,angle)" class="picker-outter")
 	div(class="pointer-wrapper" :style="wrapperStyle") {{index}}
 
 </template>
 
 <script>
-import {
-    getInlineRotateStyle,
-    getInitialPointerStyle,
-    disableMouseDown
-} from '../utils'
 export default {
-    props: {
-        index: {
-            type: Number,
-        },
-        angle: {
-            type: Number
-        },
-        handleTimeChange: {
-            type: Function
-        }
-    },
-    data() {
-        return {
-            inlineStyle: getInlineRotateStyle(angle),
-            wrapperStyle: getRotateStyle(-angle)
-        }
-    }
+	props: {
+		index: {
+			type: Number,
+		},
+		angle: {
+			type: Number
+		},
+		handleTimeChange: {
+			type: Function
+		}
+	},
+	data() {
+		return {
+			inlineStyle: this.getInlineRotateStyle(angle),
+			wrapperStyle: this.getRotateStyle(-angle)
+		}
+	},
+	methods: {
+		getInlineRotateStyle(degree) {
+			return {
+				transform: `translateX(-50%) rotate(${degree}deg)`
+			}
+		},
+		getRotateStyle(degree) {
+			return {
+				transform: `rotate(${degree}deg)`
+			}
+		}
+	}
 }
 </script>
 
