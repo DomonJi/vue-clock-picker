@@ -40,6 +40,9 @@ module.exports = {
                 include: projectRoot,
                 exclude: /node_modules/
             }, {
+                test: /\.jsx$/,
+                loader: 'jsx'
+            }, {
                 test: /\.json$/,
                 loader: 'json'
             }, {

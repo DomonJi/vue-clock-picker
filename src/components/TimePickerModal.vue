@@ -1,25 +1,21 @@
-<template lang="jade">
+<template lang="pug">
 
 div(class="time-picker-modal-container")
 	div(class="time-picker-modal-header")
-		span(@click="handleStepChange(0)") {{hour}}
-		&nbsp;:&nbsp;
-		span(@click="handleStepChange(1)"){{minute}}
+		span(@click="handleStepChange(0)") {{hourString}}
+		| &nbsp;:&nbsp;
+		span(@click="handleStepChange(1)") {{minuteString}}
 	div(class="picker-caontainer")
-		time-picker-generator(v-bind:handleTimePointerClick="handleTimePointerClick")
+		time-picker-generator(':handle-time-pointer-click'="handleTimePointerClick" ':type'="timeType")
 
 </template>
 
 <script>
 import {
 	HOURS,
-	MINUTES,
-	POINTER_RADIUS,
-	PICKER_RADIUS,
-	MAX_ABSOLUTE_POSITION,
-	MIN_ABSOLUTE_POSITION
-} from '../ConstValue.js'
-import TimePickerGenetator from './TimePickerGenerator'
+	MINUTES
+} from '../constValues.js'
+import TimePickerGenerator from './TimePickerGenerator.vue'
 export default {
 	props: {
 		initStep: {
@@ -45,14 +41,27 @@ export default {
 	},
 	data() {
 		return {
-			step: initStep,
-			pointerRotate,
-			hour: initHour,
-			minute: initMinute
+			step: this.initStep,
+			pointerRotate: () => {
+				this.resetHourDegree()
+			},
+			hour: this.initHour,
+			minute: this.initMinute
+		}
+	},
+	computed: {
+		timeType() {
+			return this.step == 0 ? 'hour' : 'minute'
+		},
+		hourString() {
+			return this.hour < 10 ? '0' + this.hour : this.hour
+		},
+		minuteString() {
+			return this.minute < 10 ? '0' + this.minute : this.minute
 		}
 	},
 	components: {
-		TimePickerGenetator: TimePickerGenerator(this.step == 0 ? 'hour' : 'minute')
+		TimePickerGenerator
 	},
 	methods: {
 		handleStepChange(s) {
@@ -61,19 +70,24 @@ export default {
 				this.pointerRotate = s == 0 ? this.resetHourDegree() : this.resetMinuteDegree()
 			}
 		},
-		handleTimePointerClick(time, pointerRotate) {
-			this.pointerRotate = pointerRotate
+		handleTimePointerClick(time, rotate) {
+			this.pointerRotate = rotate
 			this.handleTimeChange(time)
+			console.log('time changed')
 		},
 		handleTimeChange(time) {
 			time = parseInt(time)
-			this.step == 0 ?
-				this.handleHourChange && this.handleHourChange() :
-				this.handleMinuteChange && this.handleMinuteChange()
+			if (this.step == 0) {
+				this.hour = time
+				this.handleHourChange && this.handleHourChange(time)
+			} else {
+				this.minute = time
+				this.handleMinuteChange && this.handleMinuteChange(time)
+			}
 		},
 		resetHourDegree() {
 			let h = parseInt(this.hour)
-			let pointR = 0
+			let pointerR = 0
 			HOURS.forEach((hour, index) => {
 				if (h === index + 1) {
 					pointerR = index < 12 ? 360 * (index + 1) / 12 : 360 * (index + 1 - 12) / 12
@@ -83,17 +97,14 @@ export default {
 		},
 		resetMinuteDegree() {
 			let m = parseInt(this.minute)
-			let pointR = 0
-			MINUTES.forEach((m, index) => {
-				if (minute === index) {
+			let pointerR = 0
+			MINUTES.forEach((minute, index) => {
+				if (m === index) {
 					pointerR = 360 * index / 60
 				}
 			})
 			return pointerR
 		}
-	},
-	created() {
-		this.pointerRotate = this.resetHourDegree()
 	}
 }
 </script>

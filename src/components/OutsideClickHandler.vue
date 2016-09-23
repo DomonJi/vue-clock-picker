@@ -1,7 +1,7 @@
 <template lang="pug">
 
 div(ref="childnode")
-	slot(name="children")
+	slot(name="modal")
 
 </template>
 
@@ -14,18 +14,18 @@ export default {
 		}
 	},
 	methods: {
-		onOutsideClickHandler: (function(e) {
-			const isDescendantOfRoot = this.$ref.childnode.contains(e.target) //
+		onOutsideClickHandler: function(e) {
+			let isDescendantOfRoot = true //this.$refs.childnode.contains(e.target) //
 			if (!isDescendantOfRoot) {
 				this.onOutsideClick && this.onOutsideClick()
 			}
-		}).bind(this)
+		}
 	},
-	created() {
-		document.addEventListener('click', onOutsideClickHandler)
+	mounted() {
+		document.addEventListener('click', this.onOutsideClickHandler)
 	},
-	destroyed() {
-		document.removeEventListener('click', onOutsideClickHandler)
+	deforeDestroy() {
+		document.removeEventListener('click', this.onOutsideClickHandler)
 	}
 }
 </script>

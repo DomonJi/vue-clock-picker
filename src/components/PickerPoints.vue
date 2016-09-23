@@ -1,7 +1,7 @@
-<template lang="jade">
+<template lang="pug">
 
-div(v-bind:style="inlineStyle" @click="handleTimeChange(index,angle)" class="picker-outter")
-	div(class="pointer-wrapper" :style="wrapperStyle") {{index}}
+div(':style'="inlineStyle" '@click'="handleTimeChange(index,angle)" class="picker-outter")
+	div(class="pointer-wrapper" ':style'="wrapperStyle") {{index}}
 
 </template>
 
@@ -15,17 +15,21 @@ export default {
 			type: Number
 		},
 		handleTimeChange: {
-			type: Function
+			type: Function,
+			required: true,
+			default: () => {}
 		}
 	},
 	data() {
 		return {
-			inlineStyle: this.getInlineRotateStyle(angle),
-			wrapperStyle: this.getRotateStyle(-angle)
+			inlineStyle: {},
+			wrapperStyle: {}
 		}
 	},
 	methods: {
 		getInlineRotateStyle(degree) {
+			let transX = Math.cos(degree) * 200
+			let transY = Math.sin(degree) * 200
 			return {
 				transform: `translateX(-50%) rotate(${degree}deg)`
 			}
@@ -35,6 +39,10 @@ export default {
 				transform: `rotate(${degree}deg)`
 			}
 		}
+	},
+	mounted() {
+		this.inlineStyle = this.getInlineRotateStyle(this.angle)
+		this.wrapperStyle = this.getRotateStyle(-this.angle)
 	}
 }
 </script>

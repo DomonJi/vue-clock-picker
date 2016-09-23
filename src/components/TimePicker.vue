@@ -1,20 +1,25 @@
-<template lang="jade">
-
-div(class="time-picker-container")
-	div(@click="onFocus" class="time-picker-panel")
-		div(class="panel-container") {{time}}
-	outside-click-handler(v-bind:onOutsideClick="onClearFocus")
-		time-picker-modal(v-show="focused" :hour="hour" :minute="minute"
-		:handleHourChange="handleHourChange" :handleMinuteChange-"handleMinuteChange"
-		:handleTimeChange="handleTimeChange")
-
+<template lang="html">
+	<div class="time-picker-container">
+		<div class="time-picker-panel" @click="onFocus">
+			<div class="panel-container">
+				{{hourString}}:{{minuteString}}
+			</div>
+		</div>
+		<outside-click-handler :on-outside-click="onClearFocus">
+			<time-picker-modal
+				:init-hour="hour" :init-minute="minute" slot="modal"
+				:handle-hour-change="handleHourChange" :handle-minute-change="handleMinuteChange"
+				:handle-time-change="handleTimeChange" v-if="focused"
+			/>
+		</outside-click-handler>
+	</div>
 </template>
 
 <script>
 import OutsideClickHandler from './OutsideClickHandler'
 import TimePickerModal from './TimePickerModal'
 export default {
-	component: {
+	components: {
 		OutsideClickHandler,
 		TimePickerModal
 	},
@@ -63,8 +68,11 @@ export default {
 		}
 	},
 	computed: {
-		time() {
-			return `${this.hour}:${this.minute}`
+		hourString() {
+			return this.hour < 10 ? '0' + this.hour : this.hour
+		},
+		minuteString() {
+			return this.minute < 10 ? '0' + this.minute : this.minute
 		}
 	},
 	methods: {
@@ -73,24 +81,30 @@ export default {
 			this.onFocusChanged && this.onFocusChanged(true)
 		},
 		onClearFocus() {
-			this.focused = falese,
-				this.onFocusChanged && this.onFocusChanged(false)
+			this.focused = false
+			this.onFocusChanged && this.onFocusChanged(false)
 		},
-		HandleHourChange() {
+		handleHourChange(hour) {
+			this.hour = hour
 			this.onHourChanged && this.onHourChanged(this.hour)
 			this.handleTimeChange({
 				hour: this.hour
 			})
 		},
-		HandleMinuteChange() {
+		handleMinuteChange(minute) {
+			this.minute = minute
 			this.onMinuteChanged && this.onMinuteChanged(this.minute)
 			this.handleTimeChange({
 				minute: this.minute
 			})
 		},
-		HandleTimeChange(timeObj) {
+		handleTimeChange(timeObj) {
 			this.hour = timeObj['hour'] ? timeObj['hour'] : this.hour
 			this.minute = timeObj['minute'] ? timeObj['minute'] : this.minute
+			this.onTimeChanged && this.onTimeChanged({
+				hour: this.hour,
+				minute: this.minute
+			})
 		}
 	}
 }
