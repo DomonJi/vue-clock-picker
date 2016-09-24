@@ -1,16 +1,16 @@
 # Vue-Clock-Picker
 
-> A time picker based on Vue.js
+> A lite time picker based on Vue.js
 
 [![npm version](https://badge.fury.io/js/vue-clock-picker.svg)](https://badge.fury.io/js/vue-clock-picker) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/DomonJi/vue-clock-picker/blob/master/LICENSE)
 
 [![NPM](https://nodei.co/npm/vue-clock-picker.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vue-clock-picker/)
 
-> A time picker vue-component, writing in es6 standrad style.
+> A lite time picker vue-component, writing in es6 standrad style.
 
 ## SHOW
 
-> 24 Hours Mode, with Material Design
+> 24 Hours Mode, with Material Design. Try the [Live Demo](https://domonji.github.io/vue-clock-picker)
 
 ![24HoursMode](./intro_src/24M.png) ![vue-clock-picker](./intro_src/1.gif)
 
