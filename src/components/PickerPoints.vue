@@ -1,14 +1,8 @@
 <template lang="pug">
 
 
-
-
-
 div(':style'="inlineStyle" '@click'="handleTimeChange(index,angle)" class="picker-point" ':class'="[pointClass,{current:picked}]")
 	div(class="pointer-wrapper" ':style'="wrapperStyle") {{index}}
-
-
-
 
 
 </template>
@@ -69,11 +63,11 @@ export default {
   text-align: center;
   line-height: 30px;
   border-radius: 50%;
-  transition: all 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .picker-point.current{
 	background-color:#3498db;
 	color:#fff !important;
+	transition: all 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .picker-point.point-outter {
   top: 10px;

@@ -12,7 +12,7 @@
 
 > 24 Hours Mode, with Material Design. Try the [Live Demo](https://domonji.github.io/vue-clock-picker)
 
-![24HoursMode](./intro_src/24M.png) ![vue-clock-picker](./intro_src/1.gif)
+![24HoursMode](./intro_src/24M.png) ![vue-clock-picker](./intro_src/24M.gif)
 
 ## HAVE A TRY
 

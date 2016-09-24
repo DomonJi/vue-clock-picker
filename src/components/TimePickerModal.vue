@@ -130,8 +130,8 @@ export default {
 	box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.12), 0 0 8px 0 rgba(0, 0, 0, 0.08);
 }
 .time-picker-modal-header {
-  height: 50px;
-  line-height: 20px;
+  height: 80px;
+  line-height: 40px;
   text-align: center;
   font-size: 2.5em;
   position: relative;
