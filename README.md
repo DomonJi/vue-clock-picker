@@ -8,7 +8,7 @@
 
 > A time picker vue-component, writing in es6 standrad style.
 
-> ## SHOW
+## SHOW
 
 > 24 Hours Mode, with Material Design
 
