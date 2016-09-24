@@ -43,19 +43,19 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		onFocusChanged: {
+		onFocusChange: {
 			type: Function,
 			default: () => {}
 		},
-		onHourChanged: {
+		onHourChange: {
 			type: Function,
 			default: () => {}
 		},
-		onMinuteChanged: {
+		onMinuteChange: {
 			type: Function,
 			default: () => {}
 		},
-		onTimeChanged: {
+		onTimeChange: {
 			type: Function,
 			default: () => {}
 		}

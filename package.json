@@ -1,9 +1,8 @@
 {
-    "name": "vue-time-picker",
+    "name": "vue-clock-picker",
     "version": "0.0.1",
     "description": "A time picker based on Vue.js",
     "author": "domon <domonji95@gmail.com>",
-    "private": true,
     "scripts": {
         "dev": "node build/dev-server.js",
         "build": "node build/build.js",
@@ -40,7 +39,7 @@
         "vue-html-loader": "^1.0.0",
         "vue-loader": "^9.4.0",
         "vue-style-loader": "^1.0.0",
-        "webpack": "^2.1.0-beta.22",
+        "webpack": "^1.13.2",
         "webpack-dev-middleware": "^1.8.1",
         "webpack-hot-middleware": "^2.6.0",
         "webpack-merge": "^0.8.3"
