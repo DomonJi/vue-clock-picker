@@ -1,6 +1,6 @@
 {
     "name": "vue-clock-picker",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "description": "A time picker based on Vue.js",
     "author": "domon <domonji95@gmail.com>",
     "scripts": {
