@@ -1,7 +1,7 @@
 <template lang="html">
 	<div class="time-picker-container">
-		<div class="time-picker-panel" @click="onFocus">
-			<div class="panel-container">
+		<div class="time-picker-preview" @click="toggleFocus" :class="{active:focused}">
+			<div class="preview-container">
 				{{hourString}}:{{minuteString}}
 			</div>
 		</div>
@@ -84,6 +84,10 @@ export default {
 			this.focused = false
 			this.onFocusChanged && this.onFocusChanged(false)
 		},
+		toggleFocus() {
+			this.focused = !this.focused
+			this.onFocusChanged && this.onFocusChanged(this.focused)
+		},
 		handleHourChange(hour) {
 			this.hour = hour
 			this.onHourChanged && this.onHourChanged(this.hour)
@@ -111,4 +115,40 @@ export default {
 </script>
 
 <style lang="css">
+.time-picker-container {
+  position: relative;
+}
+
+.time-picker-preview {
+	position: relative;
+  	cursor: pointer;
+  	height: 50px;
+	width: 300px;
+  	color: #343434;
+  	border-radius: 2px;
+  	background-color: #fff;
+  	transition: all 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+	box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.12), 0 0 4px 0 rgba(0, 0, 0, 0.08);
+}
+
+.time-picker-preview.active,
+.time-picker-preview:hover {
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.12), 0 0 8px 0 rgba(0, 0, 0, 0.08);
+}
+
+.time-picker-preview.active {
+  color: #fff;
+  background-color: #3498db;
+}
+
+.preview-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 40px;
+  line-height: 40px;
+  /*padding-left: 30px;*/
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+}
 </style>
