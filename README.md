@@ -1,7 +1,5 @@
 # Vue-Clock-Picker
 
-> A lite time picker based on Vue.js
-
 [![npm version](https://badge.fury.io/js/vue-clock-picker.svg)](https://badge.fury.io/js/vue-clock-picker) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/DomonJi/vue-clock-picker/blob/master/LICENSE)
 
 [![NPM](https://nodei.co/npm/vue-clock-picker.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/vue-clock-picker/)
@@ -13,6 +11,8 @@
 > 24 Hours Mode, with Material Design. Try the [Live Demo](https://domonji.github.io/vue-clock-picker)
 
 ![24HoursMode](./intro_src/24M.png) ![vue-clock-picker](./intro_src/24M.gif)
+
+Until now, this component has only one theme -- The Material Theme. I'll working on more themes later.
 
 ## HAVE A TRY
 
@@ -38,11 +38,9 @@ dependencies:
 
 ## USAGE
 
-Until now, this Component has only one theme -- The Material Theme. I'll working on more themes later.
-
 ```html
 
-// in some vue component
+<!-- in some vue component -->
 <template>
     <div>
         <vue-clock-picker
@@ -74,14 +72,14 @@ export default {
     },
     methods:{
         timeChangeHandler(){
-
+            // ...
         }
     }
 }
 </script>
 ```
 
-> For more detail usage, you can see the source code.
+> For more detail, you can see the source code.
 
 ## APIS
 
@@ -144,6 +142,7 @@ The callback func when component `hour` or `minute` is changed.
 
 ```javascript
 onTimeChange(time) {
+    let { hour, minute } = time
   // ...
 }
 ```
@@ -152,13 +151,11 @@ onTimeChange(time) {
 
 - Test
 
-  - [ ] Vue Component Test
-
-    - [x] TimePicker Component
-    - [x] PickerPointGenerator Component
-    - [x] TimePickerModal Component
-    - [x] PickerPoint Component
-    - [ ] OutsideClickHandler Component
+  - [x] TimePicker Component
+  - [x] PickerPointGenerator Component
+  - [x] TimePickerModal Component
+  - [x] PickerPoint Component
+  - [ ] OutsideClickHandler Component
 
 - Themes
 
@@ -169,7 +166,6 @@ onTimeChange(time) {
 
   - [ ] 12h mode
   - [x] 24h mode
-  - [ ] Inner Points
 
 - Animations
 

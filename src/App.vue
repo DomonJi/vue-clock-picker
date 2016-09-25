@@ -2,7 +2,6 @@
 
 
 div(id="app")
-	div
 	time-picker
 
 
