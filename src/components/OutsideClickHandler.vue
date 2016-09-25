@@ -7,26 +7,26 @@ div(ref="childnode")
 
 <script>
 export default {
-	props: {
-		onOutsideClick: {
-			type: Function,
-			default: () => {}
-		}
-	},
-	methods: {
-		onOutsideClickHandler: function(e) {
-			let isDescendantOfRoot = true //this.$refs.childnode.contains(e.target) //
-			if (!isDescendantOfRoot) {
-				this.onOutsideClick && this.onOutsideClick()
-			}
-		}
-	},
-	mounted() {
-		document.addEventListener('click', this.onOutsideClickHandler)
-	},
-	deforeDestroy() {
-		document.removeEventListener('click', this.onOutsideClickHandler)
-	}
+  props: {
+    onOutsideClick: {
+      type: Function,
+      default: () => {}
+    }
+  },
+  methods: {
+    onOutsideClickHandler: function(e) {
+      let isDescendantOfRoot = true //this.$refs.childnode.contains(e.target) //
+      if (!isDescendantOfRoot) {
+        this.onOutsideClick && this.onOutsideClick()
+      }
+    }
+  },
+  mounted() {
+    document.addEventListener('click', this.onOutsideClickHandler)
+  },
+  deforeDestroy() {
+    document.removeEventListener('click', this.onOutsideClickHandler)
+  }
 }
 </script>
 

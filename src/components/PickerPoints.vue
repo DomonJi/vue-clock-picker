@@ -1,55 +1,53 @@
 <template lang="pug">
 
-
 div(':style'="inlineStyle" '@click'="handleTimeChange(index,angle)" class="picker-point" ':class'="[pointClass,{current:picked}]")
 	div(class="pointer-wrapper" ':style'="wrapperStyle") {{index}}
-
 
 </template>
 
 <script>
 export default {
-	props: {
-		index: {
-			type: Number,
-		},
-		angle: {
-			type: Number
-		},
-		handleTimeChange: {
-			type: Function,
-			required: true,
-			default: () => {}
-		},
-		pointClass: {
-			type: String,
-			default: 'point-outter'
-		},
-		picked: {
-			type: Boolean,
-			default: false
-		}
-	},
-	methods: {
-		getInlineRotateStyle(degree) {
-			return {
-				transform: `translateX(-50%) rotate(${degree}deg)`
-			}
-		},
-		getRotateStyle(degree) {
-			return {
-				transform: `rotate(${degree}deg)`
-			}
-		}
-	},
-	computed: {
-		inlineStyle() {
-			return this.getInlineRotateStyle(this.angle)
-		},
-		wrapperStyle() {
-			return this.getRotateStyle(-this.angle)
-		}
-	}
+  props: {
+    index: {
+      type: Number,
+    },
+    angle: {
+      type: Number
+    },
+    handleTimeChange: {
+      type: Function,
+      required: true,
+      default: () => {}
+    },
+    pointClass: {
+      type: String,
+      default: 'point-outter'
+    },
+    picked: {
+      type: Boolean,
+      default: false
+    }
+  },
+  methods: {
+    getInlineRotateStyle(degree) {
+      return {
+        transform: `translateX(-50%) rotate(${degree}deg)`
+      }
+    },
+    getRotateStyle(degree) {
+      return {
+        transform: `rotate(${degree}deg)`
+      }
+    }
+  },
+  computed: {
+    inlineStyle() {
+      return this.getInlineRotateStyle(this.angle)
+    },
+    wrapperStyle() {
+      return this.getRotateStyle(-this.angle)
+    }
+  }
 }
 </script>
 
