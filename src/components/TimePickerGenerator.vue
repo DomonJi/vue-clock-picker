@@ -1,5 +1,6 @@
 <template lang="pug">
 
+
 div
 	div(v-if="type=='minute'" id="picker-pointer-container")
 		picker-points(v-for="(m,i) in MINUTES" v-if="i%5==0" ':index'="i" ':key'="i" ':angle'="6*i" ':handle-time-change'="handleTimePointerClick" ':picked'="i==minute")
@@ -9,6 +10,7 @@ div
 			span(@click="handleIntervalChange('AM')" class="time-picker-interval" ':class'="{active:interval=='AM'}") AM
 			| &nbsp;|&nbsp;
 			span(@click="handleIntervalChange('PM')" class="time-picker-interval" ':class'="{active:interval=='PM'}") PM
+
 
 </template>
 

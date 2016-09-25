@@ -1,2 +1,1 @@
-import TimePicker from './components/TimePicker.vue'
-module.exports = TimePicker
+module.exports = require('./components/TimePicker.vue')

@@ -1,22 +1,24 @@
 {
     "name": "vue-clock-picker",
-    "version": "0.2.0",
-    "description": "A time picker based on Vue.js",
+    "version": "0.3.0",
+    "description": "A lite time picker based on Vue2.0",
     "author": "domon <domonji95@gmail.com>",
     "scripts": {
         "dev": "node build/dev-server.js",
         "build": "node build/build.js",
         "test": ""
     },
+    "main": "./src/index.js",
     "dependencies": {
         "babel-runtime": "^6.0.0",
-        "vue": "^2.0.0-rc.6"
+        "vue": "^2.0.0-rc.6",
+        "pug": "^2.0.0-beta6",
+        "vue-loader": "^9.4.0"
     },
     "devDependencies": {
         "babel-core": "^6.0.0",
         "babel-loader": "^6.0.0",
         "babel-plugin-transform-runtime": "^6.0.0",
-        "babel-preset-es2015": "^6.0.0",
         "babel-preset-stage-2": "^6.0.0",
         "babel-register": "^6.0.0",
         "connect-history-api-fallback": "^1.1.0",
@@ -31,7 +33,6 @@
         "json-loader": "^0.5.4",
         "node-sass": "^3.10.0",
         "ora": "^0.2.0",
-        "pug": "^2.0.0-beta6",
         "sass-loader": "^4.0.2",
         "shelljs": "^0.6.0",
         "url-loader": "^0.5.7",
@@ -43,5 +44,7 @@
         "webpack-dev-middleware": "^1.8.1",
         "webpack-hot-middleware": "^2.6.0",
         "webpack-merge": "^0.8.3"
-    }
+    },
+    "license": "MIT",
+    "repository": "https://github.com/domonji/vue-clock-picker"
 }
