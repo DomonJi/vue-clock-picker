@@ -142,7 +142,7 @@ The callback func when component `hour` or `minute` is changed.
 
 ```javascript
 onTimeChange(time) {
-    let { hour, minute } = time
+  let { hour, minute } = time
   // ...
 }
 ```
