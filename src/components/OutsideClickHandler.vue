@@ -1,6 +1,6 @@
 <template lang="pug">
 
-div(ref="childnode")
+div(ref="childnode" class="outside-click-container")
 	slot(name="modal")
 
 </template>
@@ -31,4 +31,13 @@ export default {
 </script>
 
 <style lang="css">
+.outside-click-container {
+  /*width:300px;
+  height : 405px;
+  position: absolute;
+  opacity: 1;
+  z-index: 2;
+  top: 100%;
+  left: 0;*/
+}
 </style>
