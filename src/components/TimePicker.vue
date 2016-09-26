@@ -5,7 +5,7 @@
 				{{hourString}}:{{minuteString}}
 			</div>
 		</div>
-		<outside-click-handler :on-outside-click="onClearFocus">
+		<outside-click-handler :on-outside-click="onClearFocus" :focused="focused">
 			<time-picker-modal
 				:init-hour="hour" :init-minute="minute" slot="modal"
 				:handle-hour-change="handleHourChange" :handle-minute-change="handleMinuteChange"

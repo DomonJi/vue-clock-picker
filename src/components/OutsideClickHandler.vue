@@ -1,6 +1,6 @@
 <template lang="pug">
 
-div(ref="childnode" class="outside-click-container")
+div(ref="childnode" class="outside-click-container" @mouseover="overModal=true" @mouseout="overModal=false")
 	slot(name="modal")
 
 </template>
@@ -11,12 +11,20 @@ export default {
     onOutsideClick: {
       type: Function,
       default: () => {}
+    },
+    focused: {
+      type: Boolean,
+      default: false
+    }
+  },
+  data() {
+    return {
+      overModal: false
     }
   },
   methods: {
     onOutsideClickHandler: function(e) {
-      let isDescendantOfRoot = true //this.$refs.childnode.contains(e.target) //
-      if (!isDescendantOfRoot) {
+      if (!this.overModal && this.focused) {
         this.onOutsideClick && this.onOutsideClick()
       }
     }
@@ -32,12 +40,12 @@ export default {
 
 <style lang="css">
 .outside-click-container {
-  /*width:300px;
+  width:300px;
   height : 405px;
   position: absolute;
   opacity: 1;
   z-index: 2;
   top: 100%;
-  left: 0;*/
+  left: 0;
 }
 </style>

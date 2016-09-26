@@ -1,7 +1,5 @@
 <template lang="pug">
 
-
-
 div(class="time-picker-modal-container")
 	div(class="time-picker-modal-header")
 		span(@click="handleStepChange(0)" class="time-picker-header" ':class'="{active:!step}") {{hourString}}
@@ -9,8 +7,6 @@ div(class="time-picker-modal-container")
 		span(@click="handleStepChange(1)" class="time-picker-header" ':class'="{active:step}") {{minuteString}}
 	div(class="picker-container")
 		time-picker-generator(':handle-time-pointer-click'="handleTimePointerClick" ':type'="timeType" ':hour'="hour" ':minute'="minute")
-
-
 
 </template>
 
@@ -116,7 +112,7 @@ export default {
 <style lang="css">
 .time-picker-modal-container {
 	width:250px;
-  position: absolute;
+  /*position: absolute;*/
   opacity: 1;
   z-index: 2;
   padding: 25px;
