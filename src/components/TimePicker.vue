@@ -1,6 +1,6 @@
-<template lang="html">
+<template>
 	<div class="time-picker-container">
-		<div class="time-picker-preview" @click="toggleFocus" :class="{active:focused}">
+		<div class="time-picker-preview" @click="toggleFocus" :class="{active:focused}" @mouseover="overElement=true" @mouseout="overElement=false">
 			<div class="preview-container">
 				{{hourString}}:{{minuteString}}
 			</div>
@@ -64,7 +64,8 @@ export default {
     return {
       hour: this.defaultHour,
       minute: this.defaultMinute,
-      focused: this.defaultFocused
+      focused: this.defaultFocused,
+      overElement: false
     }
   },
   computed: {
@@ -81,8 +82,8 @@ export default {
       this.onFocusChanged && this.onFocusChanged(true)
     },
     onClearFocus() {
-      this.focused = false
-      this.onFocusChanged && this.onFocusChanged(false)
+      !this.overElement && (this.focused = false)
+      !this.overElement && this.onFocusChanged && this.onFocusChanged(false)
     },
     toggleFocus() {
       this.focused = !this.focused
