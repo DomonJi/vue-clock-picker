@@ -79,26 +79,26 @@ export default {
   methods: {
     onFocus() {
       this.focused = true
-      this.onFocusChanged && this.onFocusChanged(true)
+      this.onFocusChange && this.onFocusChange(true)
     },
     onClearFocus() {
       !this.overElement && (this.focused = false)
-      !this.overElement && this.onFocusChanged && this.onFocusChanged(false)
+      !this.overElement && this.onFocusChange && this.onFocusChange(false)
     },
     toggleFocus() {
       this.focused = !this.focused
-      this.onFocusChanged && this.onFocusChanged(this.focused)
+      this.onFocusChange && this.onFocusChange(this.focused)
     },
     handleHourChange(hour) {
       this.hour = hour
-      this.onHourChanged && this.onHourChanged(this.hour)
+      this.onHourChange && this.onHourChange(this.hour)
       this.handleTimeChange({
         hour: this.hour
       })
     },
     handleMinuteChange(minute) {
       this.minute = minute
-      this.onMinuteChanged && this.onMinuteChanged(this.minute)
+      this.onMinuteChange && this.onMinuteChange(this.minute)
       this.handleTimeChange({
         minute: this.minute
       })
@@ -106,7 +106,7 @@ export default {
     handleTimeChange(timeObj) {
       this.hour = timeObj['hour'] ? timeObj['hour'] : this.hour
       this.minute = timeObj['minute'] ? timeObj['minute'] : this.minute
-      this.onTimeChanged && this.onTimeChanged({
+      this.onTimeChange && this.onTimeChange({
         hour: this.hour,
         minute: this.minute
       })
