@@ -48,7 +48,7 @@ export default {
       MINUTES,
       HOURS,
       TWELVE_HOURS,
-      interval: 'AM'
+      interval: this.hour < 12 ? 'AM' : 'PM'
     }
   },
   components: {
