@@ -32,7 +32,7 @@ export default {
   mounted() {
     document.addEventListener('click', this.onOutsideClickHandler)
   },
-  deforeDestroy() {
+  beforeDestroy() {
     document.removeEventListener('click', this.onOutsideClickHandler)
   }
 }
