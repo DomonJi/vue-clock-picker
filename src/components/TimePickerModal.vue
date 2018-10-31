@@ -73,7 +73,6 @@ export default {
     handleTimePointerClick(time, rotate) {
       this.pointerRotate = rotate
       this.handleTimeChange(time)
-      console.log('time changed')
     },
     handleTimeChange(time) {
       time = parseInt(time)
