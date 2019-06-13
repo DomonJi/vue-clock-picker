@@ -146,7 +146,7 @@ export default {
 }
 
 .picker-container {
-  width: 250px;
+  width: 300px;
   height: 250px;
   border-radius: 50%;
   background-color: #e5e5e5;
